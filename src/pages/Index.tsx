@@ -1,12 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import Stats from "@/components/Stats";
+import Testimonials from "@/components/Testimonials";
+import ProjectSpotlight from "@/components/ProjectSpotlight";
+import CaseStudies from "@/components/CaseStudies";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import OurApproach from "@/components/OurApproach";
+import Services from "@/components/Services";
+import HappyClients from "@/components/HappyClients";
+import CTA from "@/components/CTA";
+import PaymentMethods from "@/components/PaymentMethods";
+import FAQ from "@/components/FAQ";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <Header />
+      <Hero />
+      <Stats />
+      <Testimonials />
+      <ProjectSpotlight />
+      <CaseStudies />
+      <WhyChooseUs />
+      <OurApproach />
+      <Services />
+      <HappyClients />
+      <CTA />
+      <PaymentMethods />
+      <FAQ />
+      <Footer />
     </div>
   );
 };
