@@ -1,4 +1,5 @@
 import { Facebook, Twitter, Linkedin, Instagram, Mail, MapPin } from "lucide-react";
+import logoImage from "@/assets/logo-gp.jpg";
 
 const Footer = () => {
   return (
@@ -8,9 +9,11 @@ const Footer = () => {
           {/* Logo & Description */}
           <div>
             <a href="#" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">G</span>
-              </div>
+              <img 
+                src={logoImage} 
+                alt="GOD PROMO Logo" 
+                className="w-12 h-12 object-contain scale-125"
+              />
               <span className="text-xl font-bold text-foreground">
                 GOD <span className="text-primary">PROMO</span>
               </span>
