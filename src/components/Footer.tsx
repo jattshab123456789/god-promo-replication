@@ -12,7 +12,7 @@ const Footer = () => {
               <img 
                 src={logoImage} 
                 alt="GOD PROMO Logo" 
-                className="w-12 h-12 object-contain scale-125"
+                className="w-12 h-12 object-contain scale-125 rounded-xl"
               />
               <span className="text-xl font-bold text-foreground">
                 GOD <span className="text-primary">PROMO</span>

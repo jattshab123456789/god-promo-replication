@@ -1,4 +1,5 @@
 import { Check, X } from "lucide-react";
+import logoImage from "@/assets/logo-gp.jpg";
 
 const godPromoFeatures = [
   "40+ Skilled Professionals In-House",
@@ -47,9 +48,9 @@ const WhyChooseUs = () => {
           <div className="card-glass p-8 rounded-3xl border-2 border-primary/30">
             <div className="flex items-center gap-4 mb-6">
               <img
-                src="https://hynamedia.digital/wp-content/uploads/2025/07/WhatsApp-Image-2025-07-20-at-00.51.17_893d34cf.jpg"
-                alt="GOD PROMO Team"
-                className="w-16 h-16 rounded-xl object-cover"
+                src={logoImage}
+                alt="GOD PROMO"
+                className="w-16 h-16 rounded-2xl object-contain"
               />
               <h3 className="text-2xl font-bold text-gradient">GOD PROMO</h3>
             </div>
