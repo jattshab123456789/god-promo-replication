@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoImage from "@/assets/logo-gp.jpg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,9 +11,11 @@ const Header = () => {
       <div className="card-glass px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-xl">G</span>
-          </div>
+          <img 
+            src={logoImage} 
+            alt="GOD PROMO Logo" 
+            className="w-12 h-12 object-contain scale-125"
+          />
           <span className="text-xl font-bold text-foreground">
             GOD <span className="text-primary">PROMO</span>
           </span>
@@ -34,16 +37,8 @@ const Header = () => {
           </a>
         </nav>
 
-        {/* Mascot & Menu */}
+        {/* Menu */}
         <div className="flex items-center gap-4">
-          <div className="hidden md:block w-12 h-12 rounded-full overflow-hidden bg-secondary">
-            <img 
-              src="https://hynamedia.digital/wp-content/uploads/2025/07/WhatsApp_Image_2025-07-26_at_15.13.46_526430a2-removebg-preview.png" 
-              alt="Mascot" 
-              className="w-full h-full object-contain"
-            />
-          </div>
-          
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
