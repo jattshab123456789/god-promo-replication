@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Linkedin, Instagram, Mail, MapPin } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MessageCircle } from "lucide-react";
 import logoImage from "@/assets/logo-gp.jpg";
 
 const Footer = () => {
@@ -35,13 +35,13 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4">Contact Us</h3>
             <div className="space-y-3">
-              <a href="#" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
-                <MapPin className="w-4 h-4 text-primary" />
-                <span>Uttara, Dhaka 1230, Bangladesh</span>
+              <a href="https://wa.me/917404141096?text=Hello%2C%20I%27m%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
+                <MessageCircle className="w-4 h-4 text-primary" />
+                <span>+91 7404141096</span>
               </a>
-              <a href="mailto:contact@godpromo.com" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
+              <a href="mailto:sahilgrewal089@gmail.com" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
                 <Mail className="w-4 h-4 text-primary" />
-                <span>contact@godpromo.com</span>
+                <span>sahilgrewal089@gmail.com</span>
               </a>
             </div>
           </div>
