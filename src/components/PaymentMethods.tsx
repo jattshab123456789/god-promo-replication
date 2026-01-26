@@ -23,7 +23,7 @@ const PaymentMethods = () => {
           {paymentLogos.map((payment, index) => (
             <div
               key={index}
-              className="w-32 h-16 flex items-center justify-center grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100"
+              className="w-32 h-16 flex items-center justify-center hover:scale-110 transition-all"
             >
               <img
                 src={payment.src}
