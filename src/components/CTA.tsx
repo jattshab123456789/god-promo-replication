@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const CTA = () => {
@@ -20,9 +20,9 @@ const CTA = () => {
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-xl glow-primary"
             asChild
           >
-            <a href="https://wa.me/8801990429616?text=Hello%2C%20I%27m%20interested%20in%20booking%20a%20call%20with%20you.%20Kindly%20share%20your%20availability." target="_blank" rel="noopener noreferrer">
-              Book a call
-              <ArrowUpRight className="ml-2 h-5 w-5" />
+            <a href="https://wa.me/917404141096?text=Hello%2C%20I%27m%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="mr-2 h-5 w-5" />
+              Contact Us
             </a>
           </Button>
         </div>
