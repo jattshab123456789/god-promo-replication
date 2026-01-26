@@ -1,23 +1,29 @@
-const testimonials = [
+import { Play } from "lucide-react";
+
+const videoTestimonials = [
   {
-    name: "Abdur Rahman",
-    location: "Bangladesh",
-    image: "https://hynamedia.digital/wp-content/uploads/2025/07/Abdur-Rahman.png",
+    name: "James",
+    niche: "Clothing Brand",
+    quote: "Thanks GOD PROMO for the best editing services! My content went viral!",
+    videoId: "dQw4w9WgXcQ", // Replace with actual video IDs
   },
   {
     name: "Chris",
-    location: "USA",
-    image: "https://hynamedia.digital/wp-content/uploads/2025/07/Chris-1.png",
+    niche: "Car Washing Business",
+    quote: "GOD PROMO transformed my content completely. Best editing team ever!",
+    videoId: "dQw4w9WgXcQ",
   },
   {
     name: "Taz",
-    location: "USA",
-    image: "https://hynamedia.digital/wp-content/uploads/2025/07/taz-1.png",
+    niche: "Gamer",
+    quote: "Amazing editing quality! Thanks GOD PROMO for helping me grow!",
+    videoId: "dQw4w9WgXcQ",
   },
   {
-    name: "James",
-    location: "USA",
-    image: "https://hynamedia.digital/wp-content/uploads/2025/07/James-1.png",
+    name: "Abdur Rahman",
+    niche: "UI/UX Designer",
+    quote: "Professional work and fast delivery. GOD PROMO is the best!",
+    videoId: "dQw4w9WgXcQ",
   },
 ];
 
@@ -32,26 +38,37 @@ const Testimonials = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2">
             See What Clients Are Saying
           </h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            Watch real video reviews from our happy clients thanking GOD PROMO for our editing services
+          </p>
         </div>
       </div>
 
-      {/* Testimonial Carousel */}
-      <div className="overflow-hidden">
-        <div className="flex gap-6 animate-marquee">
-          {[...testimonials, ...testimonials, ...testimonials].map((testimonial, index) => (
+      {/* Video Testimonials Grid */}
+      <div className="container px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {videoTestimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-72 card-glass p-6 text-center"
+              className="card-glass p-4 rounded-2xl group hover:border-primary/50 transition-all duration-300"
             >
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-2 border-primary">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-full h-full object-cover"
+              {/* Video Thumbnail */}
+              <div className="relative aspect-[9/16] rounded-xl overflow-hidden mb-4 bg-background/50">
+                <iframe
+                  src={`https://www.youtube.com/embed/${testimonial.videoId}`}
+                  title={`${testimonial.name}'s Review`}
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
                 />
               </div>
-              <h3 className="text-lg font-semibold text-foreground">{testimonial.name}</h3>
-              <p className="text-muted-foreground text-sm">{testimonial.location}</p>
+              
+              {/* Client Info */}
+              <div className="text-center">
+                <h3 className="text-lg font-semibold text-foreground">{testimonial.name}</h3>
+                <p className="text-primary text-sm font-medium">{testimonial.niche}</p>
+                <p className="text-muted-foreground text-sm mt-2 italic">"{testimonial.quote}"</p>
+              </div>
             </div>
           ))}
         </div>
