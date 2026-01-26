@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import founderImage from "@/assets/founder-sahil.jpg";
 
@@ -45,15 +45,27 @@ const Founder = () => {
                   With a passion for creative storytelling and a vision to transform how brands connect with their audience, Sahil founded GOD PROMO to deliver world-class video content that drives real results.
                 </p>
 
-                <Button 
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl"
-                  asChild
-                >
-                  <a href="https://wa.me/8801990429616?text=Hello%2C%20I%27m%20interested%20in%20booking%20a%20call%20with%20you.%20Kindly%20share%20your%20availability." target="_blank" rel="noopener noreferrer">
-                    Book a call
-                    <ArrowUpRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button 
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl"
+                    asChild
+                  >
+                    <a href="https://wa.me/917404141096?text=Hello%2C%20I%27m%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer">
+                      <MessageCircle className="mr-2 h-4 w-4" />
+                      WhatsApp
+                    </a>
+                  </Button>
+                  <Button 
+                    variant="outline"
+                    className="border-primary/50 hover:bg-primary/10 text-foreground font-semibold rounded-xl"
+                    asChild
+                  >
+                    <a href="mailto:sahilgrewal089@gmail.com">
+                      <Mail className="mr-2 h-4 w-4" />
+                      Email Us
+                    </a>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
