@@ -1,6 +1,5 @@
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import showreelVideo from "@/assets/showreel.mp4";
 
 const avatars = [
   "https://hynamedia.digital/wp-content/uploads/2025/07/Chris.png",
@@ -75,14 +74,12 @@ const Hero = () => {
         {/* Video Section */}
         <div className="mt-16 max-w-4xl mx-auto animate-slide-up" style={{ animationDelay: "0.4s" }}>
           <div className="card-glass p-4 rounded-3xl">
-            <div className="relative aspect-video rounded-2xl overflow-hidden bg-card">
-              <video 
-                src={showreelVideo}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-cover"
+            <div className="relative w-full rounded-2xl overflow-hidden bg-card" style={{ paddingBottom: "56.25%" }}>
+              <iframe 
+                allow="fullscreen" 
+                allowFullScreen 
+                src="https://streamable.com/e/456yh6?" 
+                className="absolute inset-0 w-full h-full border-none"
               />
             </div>
           </div>
