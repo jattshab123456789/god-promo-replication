@@ -1,5 +1,6 @@
-import { MessageCircle, Play } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import showreelVideo from "@/assets/showreel.mp4";
 
 const avatars = [
   "https://hynamedia.digital/wp-content/uploads/2025/07/Chris.png",
@@ -75,21 +76,14 @@ const Hero = () => {
         <div className="mt-16 max-w-4xl mx-auto animate-slide-up" style={{ animationDelay: "0.4s" }}>
           <div className="card-glass p-4 rounded-3xl">
             <div className="relative aspect-video rounded-2xl overflow-hidden bg-card">
-              <img 
-                src="https://hynamedia.digital/wp-content/uploads/2025/07/Untitled-design.png" 
-                alt="Showreel"
+              <video 
+                src={showreelVideo}
+                autoPlay
+                muted
+                loop
+                playsInline
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <a 
-                  href="https://youtu.be/nctUqRbfmPU?si=AyQd-jSG95o7pHZG"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-20 h-20 rounded-full bg-primary flex items-center justify-center transition-transform hover:scale-110 glow-primary"
-                >
-                  <Play className="h-8 w-8 text-primary-foreground ml-1" fill="currentColor" />
-                </a>
-              </div>
             </div>
           </div>
         </div>
