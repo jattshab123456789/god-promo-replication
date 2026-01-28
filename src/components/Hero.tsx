@@ -76,10 +76,11 @@ const Hero = () => {
           <div className="card-glass p-4 rounded-3xl">
             <div className="relative w-full rounded-2xl overflow-hidden bg-card" style={{ paddingBottom: "56.25%" }}>
               <iframe 
-                allow="fullscreen" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 allowFullScreen 
-                src="https://streamable.com/e/456yh6?" 
+                src="https://www.youtube.com/embed/ArpPytlHJWE?si=1Lmv132fXkUcFrtg" 
                 className="absolute inset-0 w-full h-full border-none"
+                title="YouTube video"
               />
             </div>
           </div>
