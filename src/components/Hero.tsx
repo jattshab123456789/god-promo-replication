@@ -1,6 +1,7 @@
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import showreelVideo from "@/assets/showreel.mp4";
+import videoPoster from "@/assets/video-poster.jpg";
 
 const avatars = [
   "https://hynamedia.digital/wp-content/uploads/2025/07/Chris.png",
@@ -78,6 +79,7 @@ const Hero = () => {
             <div className="relative aspect-video rounded-2xl overflow-hidden bg-card">
               <video 
                 src={showreelVideo}
+                poster={videoPoster}
                 controls
                 loop
                 playsInline
