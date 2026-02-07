@@ -1,4 +1,5 @@
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MessageCircle } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram, Mail, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 import logoImage from "@/assets/logo-gp.jpg";
 
 const Footer = () => {
@@ -8,7 +9,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Logo & Description */}
           <div>
-            <a href="/" className="flex items-center gap-2 mb-4">
+            <Link to="/" className="flex items-center gap-2 mb-4">
               <img 
                 src={logoImage} 
                 alt="GOD PROMO Logo" 
@@ -17,7 +18,7 @@ const Footer = () => {
               <span className="text-xl font-bold text-foreground">
                 GOD <span className="text-primary">PROMO</span>
               </span>
-            </a>
+            </Link>
             <p className="text-muted-foreground text-sm">
               Professional video editing services that help your content stand out.
             </p>
@@ -27,18 +28,18 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4">Policies</h3>
             <div className="grid grid-cols-1 gap-3">
-              <a href="/terms" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+              <Link to="/terms" className="text-muted-foreground hover:text-primary transition-colors text-sm">
                 Terms & Conditions
-              </a>
-              <a href="/refund" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+              </Link>
+              <Link to="/refund" className="text-muted-foreground hover:text-primary transition-colors text-sm">
                 Refund Policy
-              </a>
-              <a href="/privacy" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+              </Link>
+              <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors text-sm">
                 Privacy Policy
-              </a>
-              <a href="/support" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+              </Link>
+              <Link to="/support" className="text-muted-foreground hover:text-primary transition-colors text-sm">
                 Customer Support
-              </a>
+              </Link>
             </div>
           </div>
 
