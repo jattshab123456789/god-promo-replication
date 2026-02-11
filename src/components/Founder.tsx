@@ -4,12 +4,11 @@ import founderImage from "@/assets/founder-sahil.jpg";
 
 const Founder = () => {
   return (
-    <section id="founder" className="py-20 relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-hero-glow opacity-20" />
+    <section id="founder" className="py-24 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-hero-glow opacity-15" />
 
       <div className="container px-4 relative z-10">
-        <div className="text-center mb-12">
+        <div className="text-center mb-14">
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Meet The Founder
           </span>
@@ -18,18 +17,17 @@ const Founder = () => {
           </h2>
         </div>
 
-        {/* Founder Card */}
         <div className="max-w-4xl mx-auto">
           <div className="card-glass p-8 md:p-12 rounded-3xl">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               {/* Left - Image */}
               <div className="flex justify-center">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-2xl transform scale-95" />
+                  <div className="absolute inset-0 bg-primary/15 rounded-3xl blur-2xl transform scale-95" />
                   <img
                     src={founderImage}
                     alt="Sahil Grewal - Founder of GOD PROMO"
-                    className="relative w-64 h-80 md:w-72 md:h-96 rounded-3xl object-cover border-2 border-primary/30"
+                    className="relative w-64 h-80 md:w-72 md:h-96 rounded-3xl object-cover border border-primary/20"
                   />
                 </div>
               </div>
@@ -57,7 +55,7 @@ const Founder = () => {
                   </Button>
                   <Button 
                     variant="outline"
-                    className="border-primary/50 hover:bg-primary/10 text-foreground font-semibold rounded-xl"
+                    className="border-primary/30 hover:bg-primary/10 text-foreground font-semibold rounded-xl"
                     asChild
                   >
                     <a href="mailto:sahilgrewal089@gmail.com">

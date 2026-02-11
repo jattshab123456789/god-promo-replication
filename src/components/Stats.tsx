@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef } from "react";
 
 const stats = [
-  { value: 38, suffix: "%", label: "More Engagement", sublabel: "Viral Edits" },
-  { value: 3, suffix: "X", label: "More Reach", sublabel: "Strategic Distribution" },
-  { value: 9, suffix: "%", label: "More Leads", sublabel: "Automated Systems" },
+  { value: 65, suffix: "%", label: "More Engagement", sublabel: "Viral Edits" },
+  { value: 1, suffix: "X", label: "More Reach", sublabel: "Strategic Distribution" },
+  { value: 16, suffix: "%", label: "More Leads", sublabel: "Automated Systems" },
 ];
 
 const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
@@ -50,7 +50,7 @@ const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
   }, [isVisible, target]);
 
   return (
-    <div ref={ref} className="text-5xl md:text-6xl font-bold text-gradient">
+    <div ref={ref} className="text-5xl md:text-7xl font-bold text-gradient">
       {count}
       {suffix}
     </div>
@@ -59,18 +59,18 @@ const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
 
 const Stats = () => {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
       {/* Text Marquee */}
-      <div className="mb-16 overflow-hidden">
+      <div className="mb-20 overflow-hidden">
         <div className="flex gap-8 animate-marquee">
           {[...Array(2)].map((_, i) => (
             <div key={i} className="flex gap-8 whitespace-nowrap">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold">
-                <span className="text-muted-foreground">Tired</span>{" "}
-                <span className="text-foreground">of dull video content that blends in?</span>{" "}
-                <span className="text-foreground">Let's level up your game with</span>{" "}
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold">
+                <span className="text-muted-foreground/60">Tired</span>{" "}
+                <span className="text-foreground/80">of dull video content that blends in?</span>{" "}
+                <span className="text-foreground/80">Let's level up your game with</span>{" "}
                 <span className="text-primary">standout visuals!</span>
-                <span className="mx-8">•</span>
+                <span className="mx-8 text-primary/30">•</span>
               </h2>
             </div>
           ))}
@@ -79,15 +79,15 @@ const Stats = () => {
 
       {/* Stats Grid */}
       <div className="container px-4">
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
           {stats.map((stat, index) => (
             <div 
               key={index} 
-              className="card-glass p-8 text-center"
+              className="card-glass p-10 text-center group hover:border-primary/30 transition-all duration-500"
             >
               <Counter target={stat.value} suffix={stat.suffix} />
               <h3 className="text-xl font-semibold text-foreground mt-4">{stat.label}</h3>
-              <p className="text-muted-foreground mt-1">{stat.sublabel}</p>
+              <p className="text-muted-foreground mt-1 text-sm">{stat.sublabel}</p>
             </div>
           ))}
         </div>

@@ -13,12 +13,11 @@ const ProjectSpotlight = () => {
   const [activeCategory, setActiveCategory] = useState("Infograph");
 
   return (
-    <section className="py-20 relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-hero-glow opacity-30" />
+    <section className="py-24 relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-hero-glow opacity-20" />
 
       <div className="container px-4 relative z-10">
-        <div className="text-center mb-12">
+        <div className="text-center mb-14">
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Project Spotlight
           </span>
@@ -33,10 +32,10 @@ const ProjectSpotlight = () => {
             <button
               key={category.name}
               onClick={() => setActiveCategory(category.name)}
-              className={`px-6 py-3 rounded-xl font-medium transition-all ${
+              className={`px-6 py-3 rounded-xl font-medium text-sm transition-all ${
                 activeCategory === category.name
-                  ? "bg-primary text-primary-foreground glow-primary"
-                  : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/50"
+                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                  : "bg-card/60 border border-border/30 text-muted-foreground hover:text-foreground hover:border-primary/30"
               }`}
             >
               {category.name}
@@ -46,15 +45,14 @@ const ProjectSpotlight = () => {
 
         {/* Video Showcase Grid */}
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="card-glass aspect-[9/16] rounded-2xl overflow-hidden bg-gradient-to-br from-card to-secondary flex items-center justify-center">
-            <span className="text-muted-foreground">Video Sample 1</span>
-          </div>
-          <div className="card-glass aspect-[9/16] rounded-2xl overflow-hidden bg-gradient-to-br from-card to-secondary flex items-center justify-center">
-            <span className="text-muted-foreground">Video Sample 2</span>
-          </div>
-          <div className="card-glass aspect-[9/16] rounded-2xl overflow-hidden bg-gradient-to-br from-card to-secondary flex items-center justify-center">
-            <span className="text-muted-foreground">Video Sample 3</span>
-          </div>
+          {[1, 2, 3].map((i) => (
+            <div
+              key={i}
+              className="card-glass aspect-[9/16] rounded-2xl overflow-hidden bg-gradient-to-br from-card to-secondary/30 flex items-center justify-center group hover:border-primary/30 transition-colors"
+            >
+              <span className="text-muted-foreground text-sm">Video Sample {i}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

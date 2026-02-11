@@ -39,9 +39,9 @@ const OurApproach = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
       <div className="container px-4 relative z-10">
-        <div className="text-center mb-12">
+        <div className="text-center mb-14">
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Our Approach
           </span>
@@ -50,19 +50,18 @@ const OurApproach = () => {
           </h2>
         </div>
 
-        {/* Steps Timeline */}
         <div className="max-w-4xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
                 <button
                   key={index}
                   onClick={() => setActiveStep(index)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all ${
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-xl transition-all text-sm ${
                     activeStep === index
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-card border border-border text-muted-foreground hover:text-foreground"
+                      ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                      : "bg-card/60 border border-border/30 text-muted-foreground hover:text-foreground hover:border-primary/30"
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -72,9 +71,8 @@ const OurApproach = () => {
             })}
           </div>
 
-          {/* Active Step Content */}
           <div className="card-glass p-8 md:p-12 rounded-3xl text-center">
-            <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-primary/20 flex items-center justify-center">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-primary/15 flex items-center justify-center">
               {(() => {
                 const Icon = steps[activeStep].icon;
                 return <Icon className="w-8 h-8 text-primary" />;
@@ -82,7 +80,7 @@ const OurApproach = () => {
             </div>
             <h3 className="text-2xl font-bold text-foreground mb-2">{steps[activeStep].title}</h3>
             <h4 className="text-lg text-primary mb-4">{steps[activeStep].subtitle}</h4>
-            <p className="text-muted-foreground max-w-xl mx-auto mb-6">
+            <p className="text-muted-foreground max-w-xl mx-auto mb-6 leading-relaxed">
               {steps[activeStep].description}
             </p>
 
@@ -91,7 +89,7 @@ const OurApproach = () => {
                 {steps[activeStep].industries.map((industry, i) => (
                   <span
                     key={i}
-                    className="px-4 py-2 rounded-full bg-secondary text-muted-foreground text-sm"
+                    className="px-4 py-2 rounded-full bg-secondary/60 text-muted-foreground text-sm border border-border/30"
                   >
                     {industry}
                   </span>
