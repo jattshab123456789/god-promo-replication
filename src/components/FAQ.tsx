@@ -34,9 +34,9 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-20 relative overflow-hidden">
+    <section id="faq" className="py-24 relative overflow-hidden">
       <div className="container px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-14">
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Your Concerns, Clarified
           </span>
@@ -53,10 +53,10 @@ const FAQ = () => {
                 value={`item-${index}`}
                 className="card-glass border-none rounded-2xl px-6 overflow-hidden"
               >
-                <AccordionTrigger className="text-left text-foreground font-semibold hover:no-underline py-6">
+                <AccordionTrigger className="text-left text-foreground font-semibold hover:no-underline py-6 text-sm md:text-base">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6">
+                <AccordionContent className="text-muted-foreground pb-6 text-sm leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

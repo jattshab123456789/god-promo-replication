@@ -35,8 +35,8 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-20 relative overflow-hidden">
-      <div className="container px-4 mb-12">
+    <section id="services" className="py-24 relative overflow-hidden">
+      <div className="container px-4 mb-14">
         <div className="text-center">
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Services
@@ -53,10 +53,10 @@ const Services = () => {
           {[...services.slice(0, 4), ...services.slice(0, 4)].map((service, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-80 card-glass p-6 rounded-2xl"
+              className="flex-shrink-0 w-80 card-glass p-6 rounded-2xl hover:border-primary/30 transition-colors"
             >
               <h3 className="text-lg font-semibold text-foreground mb-2">{service.title}</h3>
-              <p className="text-muted-foreground text-sm">{service.description}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
             </div>
           ))}
         </div>
@@ -67,10 +67,10 @@ const Services = () => {
           {[...services.slice(4), ...services.slice(4)].map((service, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-80 card-glass p-6 rounded-2xl"
+              className="flex-shrink-0 w-80 card-glass p-6 rounded-2xl hover:border-primary/30 transition-colors"
             >
               <h3 className="text-lg font-semibold text-foreground mb-2">{service.title}</h3>
-              <p className="text-muted-foreground text-sm">{service.description}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
             </div>
           ))}
         </div>

@@ -29,12 +29,11 @@ const otherAgencies = [
 
 const WhyChooseUs = () => {
   return (
-    <section id="about" className="py-20 relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-hero-glow opacity-20" />
+    <section id="about" className="py-24 relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-hero-glow opacity-15" />
 
       <div className="container px-4 relative z-10">
-        <div className="text-center mb-12">
+        <div className="text-center mb-14">
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Why Choose Us
           </span>
@@ -45,28 +44,28 @@ const WhyChooseUs = () => {
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* GOD PROMO Column */}
-          <div className="card-glass p-8 rounded-3xl border-2 border-primary/30">
-            <div className="flex items-center gap-4 mb-6">
+          <div className="card-glass p-8 rounded-3xl border-2 border-primary/20 hover:border-primary/40 transition-colors">
+            <div className="flex items-center gap-4 mb-8">
               <img
                 src={logoImage}
                 alt="GOD PROMO"
-                className="w-16 h-16 rounded-2xl object-contain"
+                className="w-14 h-14 rounded-2xl object-contain"
               />
               <h3 className="text-2xl font-bold text-gradient">GOD PROMO</h3>
             </div>
 
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-3.5 mb-8">
               {godPromoFeatures.map((feature, index) => (
                 <li key={index} className="flex items-center gap-3">
                   <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                     <Check className="w-3 h-3 text-primary" />
                   </div>
-                  <span className="text-foreground">{feature}</span>
+                  <span className="text-foreground text-sm">{feature}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="border-t border-border pt-6">
+            <div className="border-t border-border/50 pt-6">
               <h4 className="text-lg font-semibold text-foreground mb-4">Extra Value, Just for You</h4>
               <ul className="space-y-3">
                 {extraValue.map((feature, index) => (
@@ -74,7 +73,7 @@ const WhyChooseUs = () => {
                     <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                       <Check className="w-3 h-3 text-primary" />
                     </div>
-                    <span className="text-foreground">{feature}</span>
+                    <span className="text-foreground text-sm">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -83,23 +82,22 @@ const WhyChooseUs = () => {
 
           {/* Other Agencies Column */}
           <div className="card-glass p-8 rounded-3xl">
-            <h3 className="text-2xl font-bold text-muted-foreground mb-6">Other Agencies</h3>
+            <h3 className="text-2xl font-bold text-muted-foreground mb-8">Other Agencies</h3>
 
-            <ul className="space-y-3">
+            <ul className="space-y-3.5">
               {otherAgencies.map((feature, index) => (
                 <li key={index} className="flex items-center gap-3">
                   <div className="w-5 h-5 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0">
                     <X className="w-3 h-3 text-destructive" />
                   </div>
-                  <span className="text-muted-foreground">{feature}</span>
+                  <span className="text-muted-foreground text-sm">{feature}</span>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        {/* Note */}
-        <div className="mt-8 text-center">
+        <div className="mt-10 text-center">
           <p className="text-muted-foreground text-sm max-w-2xl mx-auto">
             😊 Usually, we don't provide samples, but if a client is genuinely interested to see our works, we're happy to create one for a small fee.
           </p>
