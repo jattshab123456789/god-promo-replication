@@ -7,7 +7,6 @@ import Founder from "@/components/Founder";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import OurApproach from "@/components/OurApproach";
 import Services from "@/components/Services";
-import HappyClients from "@/components/HappyClients";
 import CTA from "@/components/CTA";
 import PaymentMethods from "@/components/PaymentMethods";
 import FAQ from "@/components/FAQ";
@@ -15,26 +14,20 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen relative">
-      {/* Aurora Background */}
-      <div className="aurora-bg" />
-      
-      <div className="relative z-10">
-        <Header />
-        <Hero />
-        <Stats />
-        <Testimonials />
-        <ProjectSpotlight />
-        <Founder />
-        <WhyChooseUs />
-        <OurApproach />
-        <Services />
-        <HappyClients />
-        <CTA />
-        <PaymentMethods />
-        <FAQ />
-        <Footer />
-      </div>
+    <div className="min-h-screen">
+      <Header />
+      <Hero />
+      <Stats />
+      <Testimonials />
+      <ProjectSpotlight />
+      <Founder />
+      <WhyChooseUs />
+      <OurApproach />
+      <Services />
+      <CTA />
+      <PaymentMethods />
+      <FAQ />
+      <Footer />
     </div>
   );
 };

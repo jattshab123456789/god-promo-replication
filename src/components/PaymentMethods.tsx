@@ -8,9 +8,9 @@ const PaymentMethods = () => {
   ];
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-16 relative overflow-hidden">
       <div className="container px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Payment Method
           </span>
@@ -19,11 +19,11 @@ const PaymentMethods = () => {
           </h2>
         </div>
 
-        <div className="flex flex-wrap justify-center items-center gap-10">
+        <div className="flex flex-wrap justify-center items-center gap-8">
           {paymentLogos.map((payment, index) => (
             <div
               key={index}
-              className="w-32 h-16 flex items-center justify-center hover:scale-110 transition-all duration-300 opacity-70 hover:opacity-100"
+              className="w-32 h-16 flex items-center justify-center hover:scale-110 transition-all"
             >
               <img
                 src={payment.src}

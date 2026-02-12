@@ -7,8 +7,8 @@ const clients = [
 
 const HappyClients = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
-      <div className="container px-4 mb-14">
+    <section className="py-20 relative overflow-hidden">
+      <div className="container px-4 mb-12">
         <div className="text-center">
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Happy Clients
@@ -20,21 +20,18 @@ const HappyClients = () => {
       </div>
 
       {/* Clients Marquee */}
-      <div className="relative overflow-hidden">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-        
-        <div className="flex gap-6 animate-marquee hover:[animation-play-state:paused]">
+      <div className="overflow-hidden">
+        <div className="flex gap-6 animate-marquee">
           {[...clients, ...clients, ...clients, ...clients].map((client, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-64 card-glass p-6 text-center rounded-2xl hover:border-primary/30 transition-colors"
+              className="flex-shrink-0 w-64 card-glass p-6 text-center rounded-2xl"
             >
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center border border-primary/20">
-                <span className="text-2xl font-bold text-primary">{client.name[0]}</span>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                <span className="text-2xl font-bold text-primary-foreground">{client.name[0]}</span>
               </div>
               <h3 className="text-lg font-semibold text-foreground">{client.name}</h3>
-              <p className="text-muted-foreground text-sm mt-1">Niche: {client.niche}</p>
+              <p className="text-muted-foreground text-sm">Niche: {client.niche}</p>
             </div>
           ))}
         </div>

@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import showreelVideo from "@/assets/showreel.mp4";
 import videoPoster from "@/assets/video-poster.jpg";
@@ -7,25 +7,24 @@ const avatars = [
   "https://hynamedia.digital/wp-content/uploads/2025/07/Chris.png",
   "https://hynamedia.digital/wp-content/uploads/2025/07/James.png",
   "https://hynamedia.digital/wp-content/uploads/2025/07/taz.png",
-  "https://hynamedia.digital/wp-content/uploads/2025/07/WhatsApp-Image-2025-07-19-at-17.33.01_80b89a43-576x1024.jpg",
-  "https://hynamedia.digital/wp-content/uploads/2025/07/WhatsApp-Image-2025-07-19-at-17.33.00_ab000aa2-796x1024.jpg",
 ];
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden">
-      {/* Subtle radial glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-hero-glow opacity-40" />
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-hero" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-hero-glow opacity-50" />
       
       <div className="container relative z-10 px-4">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border/60 bg-card/40 backdrop-blur-sm mb-8 animate-fade-in">
-            <span className="text-sm text-muted-foreground tracking-wide">Remote Video Editing Agency</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm mb-8 animate-fade-in">
+            <span className="text-sm text-muted-foreground">Remote Video Editing Agency</span>
           </div>
 
           {/* Heading */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up">
             <span className="text-muted-foreground">Grab more audience</span>
             <br />
             <span className="text-foreground">Using </span>
@@ -33,7 +32,7 @@ const Hero = () => {
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-slide-up leading-relaxed" style={{ animationDelay: "0.1s" }}>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-slide-up" style={{ animationDelay: "0.1s" }}>
             We partner with growth-focused businesses, providing Done-For-You organic
             content systems that drive leads effortlessly.
           </p>
@@ -50,7 +49,7 @@ const Hero = () => {
                 />
               ))}
               <div className="w-12 h-12 rounded-full border-2 border-background bg-secondary flex items-center justify-center">
-                <span className="text-xs text-muted-foreground">+25</span>
+                <span className="text-xs text-muted-foreground">+27</span>
               </div>
             </div>
             <div className="text-left">
@@ -63,12 +62,12 @@ const Hero = () => {
           <div className="animate-slide-up" style={{ animationDelay: "0.3s" }}>
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-xl glow-primary group"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-xl glow-primary"
               asChild
             >
               <a href="https://wa.me/917404141096?text=Hello%2C%20I%27m%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer">
-                Book a call
-                <ArrowUpRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <MessageCircle className="mr-2 h-5 w-5" />
+                Contact Us
               </a>
             </Button>
           </div>
@@ -76,7 +75,7 @@ const Hero = () => {
 
         {/* Video Section */}
         <div className="mt-16 max-w-4xl mx-auto animate-slide-up" style={{ animationDelay: "0.4s" }}>
-          <div className="card-glass p-3 md:p-4 rounded-3xl">
+          <div className="card-glass p-4 rounded-3xl">
             <div className="relative aspect-video rounded-2xl overflow-hidden bg-card">
               <video 
                 src={showreelVideo}
