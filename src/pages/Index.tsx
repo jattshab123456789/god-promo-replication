@@ -7,7 +7,7 @@ import Founder from "@/components/Founder";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import OurApproach from "@/components/OurApproach";
 import Services from "@/components/Services";
-import HappyClients from "@/components/HappyClients";
+
 import CTA from "@/components/CTA";
 import PaymentMethods from "@/components/PaymentMethods";
 import FAQ from "@/components/FAQ";
@@ -29,7 +29,7 @@ const Index = () => {
         <WhyChooseUs />
         <OurApproach />
         <Services />
-        <HappyClients />
+        
         <CTA />
         <PaymentMethods />
         <FAQ />
