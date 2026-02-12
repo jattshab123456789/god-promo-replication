@@ -8,8 +8,19 @@ const categories = [
   { name: "Games", active: false },
 ];
 
+const categoryVideos: Record<string, string[]> = {
+  Infograph: [
+    "/videos/infograph-1.mp4",
+    "/videos/infograph-2.mp4",
+    "/videos/infograph-3.mp4",
+    "/videos/infograph-4.mp4",
+  ],
+};
+
 const ProjectSpotlight = () => {
   const [activeCategory, setActiveCategory] = useState("Infograph");
+
+  const videos = categoryVideos[activeCategory] || [];
 
   return (
     <section className="py-20 relative overflow-hidden">
@@ -44,16 +55,25 @@ const ProjectSpotlight = () => {
         </div>
 
         {/* Video Showcase Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="card-glass aspect-[9/16] rounded-2xl overflow-hidden bg-gradient-to-br from-card to-secondary flex items-center justify-center">
-            <span className="text-muted-foreground">Video Sample 1</span>
-          </div>
-          <div className="card-glass aspect-[9/16] rounded-2xl overflow-hidden bg-gradient-to-br from-card to-secondary flex items-center justify-center">
-            <span className="text-muted-foreground">Video Sample 2</span>
-          </div>
-          <div className="card-glass aspect-[9/16] rounded-2xl overflow-hidden bg-gradient-to-br from-card to-secondary flex items-center justify-center">
-            <span className="text-muted-foreground">Video Sample 3</span>
-          </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {videos.length > 0 ? (
+            videos.map((src, i) => (
+              <div key={src} className="card-glass aspect-[9/16] rounded-2xl overflow-hidden bg-gradient-to-br from-card to-secondary">
+                <video
+                  src={src}
+                  muted
+                  loop
+                  playsInline
+                  autoPlay
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))
+          ) : (
+            <div className="col-span-full text-center py-20 text-muted-foreground">
+              Coming soon...
+            </div>
+          )}
         </div>
       </div>
     </section>
