@@ -6,7 +6,6 @@ const categories = [
   { name: "Documentary", active: false },
   { name: "Real Estate", active: false },
   { name: "Games", active: false },
-  { name: "VSL", active: false },
 ];
 
 const ProjectSpotlight = () => {
