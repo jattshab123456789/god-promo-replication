@@ -1,3 +1,5 @@
+import AnimatedSection, { StaggerContainer, StaggerItem } from "./AnimatedSection";
+
 const PaymentMethods = () => {
   const paymentLogos = [
     { name: "PayPal", src: "https://hynamedia.digital/wp-content/uploads/2025/07/p.png" },
@@ -10,29 +12,22 @@ const PaymentMethods = () => {
   return (
     <section className="py-16 relative overflow-hidden">
       <div className="container px-4">
-        <div className="text-center mb-10">
-          <span className="text-primary text-sm font-semibold uppercase tracking-wider">
-            Payment Method
-          </span>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mt-2">
-            Payment Received Through This System
-          </h2>
-        </div>
+        <AnimatedSection variant="fade-up">
+          <div className="text-center mb-10">
+            <span className="text-primary text-sm font-semibold uppercase tracking-wider">Payment Method</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mt-2">Payment Received Through This System</h2>
+          </div>
+        </AnimatedSection>
 
-        <div className="flex flex-wrap justify-center items-center gap-8">
+        <StaggerContainer className="flex flex-wrap justify-center items-center gap-8" staggerDelay={0.1}>
           {paymentLogos.map((payment, index) => (
-            <div
-              key={index}
-              className="w-32 h-16 flex items-center justify-center hover:scale-110 transition-all"
-            >
-              <img
-                src={payment.src}
-                alt={payment.name}
-                className="max-w-full max-h-full object-contain"
-              />
-            </div>
+            <StaggerItem key={index}>
+              <div className="w-32 h-16 flex items-center justify-center hover:scale-110 transition-all">
+                <img src={payment.src} alt={payment.name} className="max-w-full max-h-full object-contain" />
+              </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
