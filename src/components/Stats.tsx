@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import AnimatedSection from "./AnimatedSection";
 
 const stats = [
   { value: 38, suffix: "%", label: "More Engagement", sublabel: "Viral Edits" },
@@ -14,28 +15,20 @@ const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
       { threshold: 0.5 }
     );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
+    if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
     if (!isVisible) return;
-
     const duration = 2000;
     const steps = 60;
     const increment = target / steps;
     let current = 0;
-
     const timer = setInterval(() => {
       current += increment;
       if (current >= target) {
@@ -45,14 +38,12 @@ const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
         setCount(Math.floor(current));
       }
     }, duration / steps);
-
     return () => clearInterval(timer);
   }, [isVisible, target]);
 
   return (
     <div ref={ref} className="text-5xl md:text-6xl font-bold text-gradient">
-      {count}
-      {suffix}
+      {count}{suffix}
     </div>
   );
 };
@@ -81,14 +72,13 @@ const Stats = () => {
       <div className="container px-4">
         <div className="grid md:grid-cols-3 gap-8">
           {stats.map((stat, index) => (
-            <div 
-              key={index} 
-              className="card-glass p-8 text-center"
-            >
-              <Counter target={stat.value} suffix={stat.suffix} />
-              <h3 className="text-xl font-semibold text-foreground mt-4">{stat.label}</h3>
-              <p className="text-muted-foreground mt-1">{stat.sublabel}</p>
-            </div>
+            <AnimatedSection key={index} variant="scale-in" delay={index * 0.15}>
+              <div className="card-glass p-8 text-center hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                <Counter target={stat.value} suffix={stat.suffix} />
+                <h3 className="text-xl font-semibold text-foreground mt-4">{stat.label}</h3>
+                <p className="text-muted-foreground mt-1">{stat.sublabel}</p>
+              </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>
