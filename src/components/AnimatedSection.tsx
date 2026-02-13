@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { type ReactNode } from "react";
+import { forwardRef, type ReactNode } from "react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -65,17 +65,13 @@ const AnimatedSection = ({
   );
 };
 
-export const StaggerContainer = ({
-  children,
-  className = "",
-  staggerDelay = 0.1,
-}: {
-  children: ReactNode;
-  className?: string;
-  staggerDelay?: number;
-}) => {
+export const StaggerContainer = forwardRef<
+  HTMLDivElement,
+  { children: ReactNode; className?: string; staggerDelay?: number }
+>(({ children, className = "", staggerDelay = 0.1 }, ref) => {
   return (
     <motion.div
+      ref={ref}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
@@ -85,17 +81,16 @@ export const StaggerContainer = ({
       {children}
     </motion.div>
   );
-};
+});
+StaggerContainer.displayName = "StaggerContainer";
 
-export const StaggerItem = ({
-  children,
-  className = "",
-}: {
-  children: ReactNode;
-  className?: string;
-}) => {
+export const StaggerItem = forwardRef<
+  HTMLDivElement,
+  { children: ReactNode; className?: string }
+>(({ children, className = "" }, ref) => {
   return (
     <motion.div
+      ref={ref}
       variants={fadeUp}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={className}
@@ -103,6 +98,7 @@ export const StaggerItem = ({
       {children}
     </motion.div>
   );
-};
+});
+StaggerItem.displayName = "StaggerItem";
 
 export default AnimatedSection;
