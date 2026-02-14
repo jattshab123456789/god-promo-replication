@@ -1,3 +1,5 @@
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 const services = [
   {
     title: "Infographic Videos",
@@ -34,10 +36,12 @@ const services = [
 ];
 
 const Services = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
     <section id="services" className="py-20 relative overflow-hidden">
-      <div className="container px-4 mb-12">
-        <div className="text-center">
+      <div ref={ref} className="container px-4 mb-12">
+        <div className={`text-center scroll-reveal ${isVisible ? "visible" : ""}`}>
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Services
           </span>
@@ -53,7 +57,7 @@ const Services = () => {
           {[...services.slice(0, 4), ...services.slice(0, 4)].map((service, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-80 card-glass p-6 rounded-2xl"
+              className="flex-shrink-0 w-80 card-glass p-6 rounded-2xl card-hover"
             >
               <h3 className="text-lg font-semibold text-foreground mb-2">{service.title}</h3>
               <p className="text-muted-foreground text-sm">{service.description}</p>
@@ -67,7 +71,7 @@ const Services = () => {
           {[...services.slice(4), ...services.slice(4)].map((service, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-80 card-glass p-6 rounded-2xl"
+              className="flex-shrink-0 w-80 card-glass p-6 rounded-2xl card-hover"
             >
               <h3 className="text-lg font-semibold text-foreground mb-2">{service.title}</h3>
               <p className="text-muted-foreground text-sm">{service.description}</p>

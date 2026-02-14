@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const faqs = [
   {
@@ -33,10 +34,12 @@ const faqs = [
 ];
 
 const FAQ = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
     <section id="faq" className="py-20 relative overflow-hidden">
-      <div className="container px-4">
-        <div className="text-center mb-12">
+      <div className="container px-4" ref={ref}>
+        <div className={`text-center mb-12 scroll-reveal ${isVisible ? "visible" : ""}`}>
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Your Concerns, Clarified
           </span>
@@ -51,7 +54,7 @@ const FAQ = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="card-glass border-none rounded-2xl px-6 overflow-hidden"
+                className={`card-glass border-none rounded-2xl px-6 overflow-hidden card-hover scroll-reveal ${isVisible ? "visible" : ""} stagger-${index + 1}`}
               >
                 <AccordionTrigger className="text-left text-foreground font-semibold hover:no-underline py-6">
                   {faq.question}

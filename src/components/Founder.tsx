@@ -1,15 +1,17 @@
 import { Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import founderImage from "@/assets/founder-sahil.jpg";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Founder = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
     <section id="founder" className="py-20 relative overflow-hidden">
-      {/* Background glow */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-hero-glow opacity-20" />
 
-      <div className="container px-4 relative z-10">
-        <div className="text-center mb-12">
+      <div className="container px-4 relative z-10" ref={ref}>
+        <div className={`text-center mb-12 scroll-reveal ${isVisible ? "visible" : ""}`}>
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Meet The Founder
           </span>
@@ -18,24 +20,23 @@ const Founder = () => {
           </h2>
         </div>
 
-        {/* Founder Card */}
         <div className="max-w-4xl mx-auto">
           <div className="card-glass p-8 md:p-12 rounded-3xl">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               {/* Left - Image */}
-              <div className="flex justify-center">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-2xl transform scale-95" />
+              <div className={`flex justify-center scroll-reveal-left ${isVisible ? "visible" : ""} stagger-2`}>
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-2xl transform scale-95 group-hover:scale-100 group-hover:bg-primary/30 transition-all duration-500" />
                   <img
                     src={founderImage}
                     alt="Sahil Grewal - Founder of GOD PROMO"
-                    className="relative w-64 h-80 md:w-72 md:h-96 rounded-3xl object-cover border-2 border-primary/30"
+                    className="relative w-64 h-80 md:w-72 md:h-96 rounded-3xl object-cover border-2 border-primary/30 group-hover:border-primary/60 transition-all duration-500 group-hover:scale-[1.02]"
                   />
                 </div>
               </div>
 
               {/* Right Content */}
-              <div>
+              <div className={`scroll-reveal-right ${isVisible ? "visible" : ""} stagger-3`}>
                 <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
                   Sahil Grewal
                 </h3>
@@ -47,7 +48,7 @@ const Founder = () => {
 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Button 
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl glow-hover"
                     asChild
                   >
                     <a href="https://wa.me/917404141096?text=Hello%2C%20I%27m%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer">
@@ -57,7 +58,7 @@ const Founder = () => {
                   </Button>
                   <Button 
                     variant="outline"
-                    className="border-primary/50 hover:bg-primary/10 text-foreground font-semibold rounded-xl"
+                    className="border-primary/50 hover:bg-primary/10 text-foreground font-semibold rounded-xl glow-hover"
                     asChild
                   >
                     <a href="mailto:sahilgrewal089@gmail.com">

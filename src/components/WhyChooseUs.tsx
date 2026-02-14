@@ -1,5 +1,6 @@
 import { Check, X } from "lucide-react";
 import logoImage from "@/assets/logo-gp.jpg";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const godPromoFeatures = [
   "40+ Skilled Professionals In-House",
@@ -28,13 +29,14 @@ const otherAgencies = [
 ];
 
 const WhyChooseUs = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
     <section id="about" className="py-20 relative overflow-hidden">
-      {/* Background glow */}
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-hero-glow opacity-20" />
 
-      <div className="container px-4 relative z-10">
-        <div className="text-center mb-12">
+      <div className="container px-4 relative z-10" ref={ref}>
+        <div className={`text-center mb-12 scroll-reveal ${isVisible ? "visible" : ""}`}>
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Why Choose Us
           </span>
@@ -45,7 +47,7 @@ const WhyChooseUs = () => {
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* GOD PROMO Column */}
-          <div className="card-glass p-8 rounded-3xl border-2 border-primary/30">
+          <div className={`card-glass p-8 rounded-3xl border-2 border-primary/30 card-hover scroll-reveal-left ${isVisible ? "visible" : ""} stagger-2`}>
             <div className="flex items-center gap-4 mb-6">
               <img
                 src={logoImage}
@@ -82,7 +84,7 @@ const WhyChooseUs = () => {
           </div>
 
           {/* Other Agencies Column */}
-          <div className="card-glass p-8 rounded-3xl">
+          <div className={`card-glass p-8 rounded-3xl scroll-reveal-right ${isVisible ? "visible" : ""} stagger-3`}>
             <h3 className="text-2xl font-bold text-muted-foreground mb-6">Other Agencies</h3>
 
             <ul className="space-y-3">
@@ -99,7 +101,7 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Note */}
-        <div className="mt-8 text-center">
+        <div className={`mt-8 text-center scroll-reveal ${isVisible ? "visible" : ""} stagger-4`}>
           <p className="text-muted-foreground text-sm max-w-2xl mx-auto">
             😊 Usually, we don't provide samples, but if a client is genuinely interested to see our works, we're happy to create one for a small fee.
           </p>

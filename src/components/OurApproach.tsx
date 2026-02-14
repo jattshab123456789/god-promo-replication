@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Lightbulb, FileText, Scissors, Image, Send } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const steps = [
   {
@@ -37,11 +38,12 @@ const steps = [
 
 const OurApproach = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const { ref, isVisible } = useScrollReveal();
 
   return (
     <section className="py-20 relative overflow-hidden">
-      <div className="container px-4 relative z-10">
-        <div className="text-center mb-12">
+      <div className="container px-4 relative z-10" ref={ref}>
+        <div className={`text-center mb-12 scroll-reveal ${isVisible ? "visible" : ""}`}>
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Our Approach
           </span>
@@ -50,19 +52,18 @@ const OurApproach = () => {
           </h2>
         </div>
 
-        {/* Steps Timeline */}
         <div className="max-w-4xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className={`flex flex-wrap justify-center gap-4 mb-12 scroll-reveal ${isVisible ? "visible" : ""} stagger-1`}>
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
                 <button
                   key={index}
                   onClick={() => setActiveStep(index)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all ${
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300 ${
                     activeStep === index
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-card border border-border text-muted-foreground hover:text-foreground"
+                      ? "bg-primary text-primary-foreground scale-105"
+                      : "bg-card border border-border text-muted-foreground hover:text-foreground hover:scale-105"
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -72,9 +73,8 @@ const OurApproach = () => {
             })}
           </div>
 
-          {/* Active Step Content */}
-          <div className="card-glass p-8 md:p-12 rounded-3xl text-center">
-            <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-primary/20 flex items-center justify-center">
+          <div className={`card-glass p-8 md:p-12 rounded-3xl text-center scroll-reveal-scale ${isVisible ? "visible" : ""} stagger-2`}>
+            <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-primary/20 flex items-center justify-center animate-pulse-slow">
               {(() => {
                 const Icon = steps[activeStep].icon;
                 return <Icon className="w-8 h-8 text-primary" />;
@@ -91,7 +91,7 @@ const OurApproach = () => {
                 {steps[activeStep].industries.map((industry, i) => (
                   <span
                     key={i}
-                    className="px-4 py-2 rounded-full bg-secondary text-muted-foreground text-sm"
+                    className="px-4 py-2 rounded-full bg-secondary text-muted-foreground text-sm hover:bg-primary/20 hover:text-primary transition-all duration-300 cursor-default"
                   >
                     {industry}
                   </span>

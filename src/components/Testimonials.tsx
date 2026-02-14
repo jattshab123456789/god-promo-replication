@@ -1,3 +1,5 @@
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 const testimonials = [
   {
     name: "James",
@@ -26,17 +28,14 @@ const testimonials = [
 ];
 
 const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] }) => (
-  <div className="card-glass p-6 rounded-2xl group hover:border-primary/50 transition-all duration-300 text-center flex-shrink-0 w-72">
-    {/* Client Image */}
-    <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-3 border-primary">
+  <div className="card-glass p-6 rounded-2xl group hover:border-primary/50 transition-all duration-300 text-center flex-shrink-0 w-72 card-hover">
+    <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-3 border-primary group-hover:scale-110 transition-transform duration-500">
       <img
         src={testimonial.image}
         alt={testimonial.name}
         className="w-full h-full object-cover"
       />
     </div>
-    
-    {/* Client Info */}
     <h3 className="text-lg font-semibold text-foreground">{testimonial.name}</h3>
     <p className="text-primary text-sm font-medium">{testimonial.niche}</p>
     <p className="text-muted-foreground text-sm mt-3 italic">"{testimonial.quote}"</p>
@@ -44,13 +43,13 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
 );
 
 const Testimonials = () => {
-  // Double the testimonials for seamless loop
+  const { ref, isVisible } = useScrollReveal();
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   return (
     <section className="py-20 relative overflow-hidden">
-      <div className="container px-4 mb-12">
-        <div className="text-center">
+      <div ref={ref} className="container px-4 mb-12">
+        <div className={`text-center scroll-reveal ${isVisible ? "visible" : ""}`}>
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Client testimonials
           </span>
@@ -63,9 +62,7 @@ const Testimonials = () => {
         </div>
       </div>
 
-      {/* Floating Marquee */}
       <div className="relative w-full overflow-hidden">
-        {/* Gradient overlays for smooth fade effect */}
         <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
         
