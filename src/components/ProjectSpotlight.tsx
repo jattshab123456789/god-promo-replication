@@ -59,10 +59,10 @@ const ProjectSpotlight = () => {
         </div>
 
         {/* Video Showcase Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className={`grid gap-6 ${activeCategory === "Documentary" ? "grid-cols-1 md:grid-cols-2" : "grid-cols-2 md:grid-cols-4"}`}>
           {videos.length > 0 ? (
             videos.map((src, i) => (
-              <div key={src} className="card-glass aspect-[9/16] rounded-2xl overflow-hidden bg-gradient-to-br from-card to-secondary">
+              <div key={src} className={`card-glass rounded-2xl overflow-hidden bg-gradient-to-br from-card to-secondary ${activeCategory === "Documentary" ? "aspect-video" : "aspect-[9/16]"}`}>
                 <video
                   src={src}
                   muted
