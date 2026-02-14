@@ -15,6 +15,12 @@ const categoryVideos: Record<string, string[]> = {
     "/videos/infograph-3.mp4",
     "/videos/infograph-4.mp4",
   ],
+  "Talking Head": [
+    "/videos/talkinghead-1.mp4",
+    "/videos/talkinghead-2.mp4",
+    "/videos/talkinghead-3.mp4",
+    "/videos/talkinghead-4.mp4",
+  ],
   Documentary: [
     "/videos/documentary-1.mp4",
     "/videos/documentary-2.mp4",
