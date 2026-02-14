@@ -1,14 +1,16 @@
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const CTA = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
     <section className="py-20 relative overflow-hidden">
-      {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-hero-glow opacity-30" />
 
-      <div className="container px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
+      <div className="container px-4 relative z-10" ref={ref}>
+        <div className={`max-w-3xl mx-auto text-center scroll-reveal-scale ${isVisible ? "visible" : ""}`}>
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Fuel Your Growth
           </span>
@@ -17,7 +19,7 @@ const CTA = () => {
           </h2>
           <Button 
             size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-xl glow-primary"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-xl glow-primary glow-hover"
             asChild
           >
             <a href="https://wa.me/917404141096?text=Hello%2C%20I%27m%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer">

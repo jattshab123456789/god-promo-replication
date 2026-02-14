@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const stats = [
   { value: 38, suffix: "%", label: "More Engagement", sublabel: "Viral Edits" },
@@ -58,6 +59,8 @@ const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
 };
 
 const Stats = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Text Marquee */}
@@ -78,12 +81,12 @@ const Stats = () => {
       </div>
 
       {/* Stats Grid */}
-      <div className="container px-4">
+      <div className="container px-4" ref={ref}>
         <div className="grid md:grid-cols-3 gap-8">
           {stats.map((stat, index) => (
             <div 
               key={index} 
-              className="card-glass p-8 text-center"
+              className={`card-glass p-8 text-center card-hover scroll-reveal ${isVisible ? "visible" : ""} stagger-${index + 1}`}
             >
               <Counter target={stat.value} suffix={stat.suffix} />
               <h3 className="text-xl font-semibold text-foreground mt-4">{stat.label}</h3>

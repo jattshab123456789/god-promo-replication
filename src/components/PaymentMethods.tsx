@@ -1,4 +1,8 @@
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 const PaymentMethods = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   const paymentLogos = [
     { name: "PayPal", src: "https://hynamedia.digital/wp-content/uploads/2025/07/p.png" },
     { name: "Binance", src: "https://hynamedia.digital/wp-content/uploads/2025/07/binance.png" },
@@ -9,8 +13,8 @@ const PaymentMethods = () => {
 
   return (
     <section className="py-16 relative overflow-hidden">
-      <div className="container px-4">
-        <div className="text-center mb-10">
+      <div className="container px-4" ref={ref}>
+        <div className={`text-center mb-10 scroll-reveal ${isVisible ? "visible" : ""}`}>
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Payment Method
           </span>
@@ -23,7 +27,8 @@ const PaymentMethods = () => {
           {paymentLogos.map((payment, index) => (
             <div
               key={index}
-              className="w-32 h-16 flex items-center justify-center hover:scale-110 transition-all"
+              className={`w-32 h-16 flex items-center justify-center hover:scale-110 transition-all duration-300 scroll-reveal-scale ${isVisible ? "visible" : ""}`}
+              style={{ transitionDelay: `${0.1 + index * 0.1}s` }}
             >
               <img
                 src={payment.src}
