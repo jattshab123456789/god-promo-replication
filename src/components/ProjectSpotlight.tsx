@@ -26,6 +26,10 @@ const categoryVideos: Record<string, string[]> = {
     "/videos/documentary-1.mp4",
     "/videos/documentary-2.mp4",
   ],
+  Games: [
+    "/videos/games-1.mp4",
+    "/videos/games-2.mp4",
+  ],
 };
 
 const ProjectSpotlight = () => {
