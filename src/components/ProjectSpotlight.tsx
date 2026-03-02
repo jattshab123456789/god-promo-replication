@@ -74,12 +74,12 @@ const ProjectSpotlight = () => {
         </div>
 
         {/* Video Showcase Grid */}
-        <div className={`grid gap-6 ${activeCategory === "Documentary" || activeCategory === "Games" || activeCategory === "Real Estate" ? "grid-cols-1 md:grid-cols-2" : "grid-cols-2 md:grid-cols-4"}`}>
+        <div className={`grid gap-6 ${activeCategory === "Documentary" || activeCategory === "Games" ? "grid-cols-1 md:grid-cols-2" : "grid-cols-2 md:grid-cols-4"}`}>
           {videos.length > 0 ? (
             videos.map((src, i) => (
               <div
                 key={src}
-                className={`card-glass rounded-2xl overflow-hidden bg-gradient-to-br from-card to-secondary card-hover scroll-reveal-scale ${isVisible ? "visible" : ""} ${activeCategory === "Documentary" || activeCategory === "Games" || activeCategory === "Real Estate" ? "aspect-video" : "aspect-[9/16]"}`}
+                className={`card-glass rounded-2xl overflow-hidden bg-gradient-to-br from-card to-secondary card-hover scroll-reveal-scale ${isVisible ? "visible" : ""} ${activeCategory === "Documentary" || activeCategory === "Games" ? "aspect-video" : "aspect-[9/16]"}`}
                 style={{ transitionDelay: `${0.15 + i * 0.1}s` }}
               >
                 <video
