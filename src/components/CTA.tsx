@@ -1,6 +1,9 @@
+import { lazy, Suspense } from "react";
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+
+const Spline = lazy(() => import("@splinetool/react-spline"));
 
 const CTA = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -18,12 +21,9 @@ const CTA = () => {
             Team Up With Us to Elevate Your Business
           </h2>
           <div className="w-full h-[400px] mb-8 rounded-xl overflow-hidden">
-            <iframe
-              src="https://my.spline.design/QTpEETNiFGfOMxGp/"
-              style={{ width: "100%", height: "100%", border: "none" }}
-              title="3D Spline Scene"
-              loading="lazy"
-            />
+            <Suspense fallback={<div className="w-full h-full flex items-center justify-center text-muted-foreground">Loading 3D...</div>}>
+              <Spline scene="https://prod.spline.design/dNDwvoH2xYTRCGDb/scene.splinecode" />
+            </Suspense>
           </div>
           <Button 
             size="lg" 
