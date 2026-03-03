@@ -1,13 +1,17 @@
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import Spline from "@splinetool/react-spline";
 
 const CTA = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
     <section className="py-20 relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-hero-glow opacity-30" />
+      {/* Spline 3D Background */}
+      <div className="absolute inset-0 z-0">
+        <Spline scene="https://prod.spline.design/aPs955T8Ezyant8f/scene.splinecode" />
+      </div>
 
       <div className="container px-4 relative z-10" ref={ref}>
         <div className={`max-w-3xl mx-auto text-center scroll-reveal-scale ${isVisible ? "visible" : ""}`}>
