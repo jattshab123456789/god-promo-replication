@@ -1,6 +1,9 @@
+import { lazy, Suspense } from "react";
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+
+const Spline = lazy(() => import("@splinetool/react-spline"));
 
 const CTA = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -17,6 +20,11 @@ const CTA = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4 mb-6">
             Team Up With Us to Elevate Your Business
           </h2>
+          <div className="w-full h-[400px] mb-8">
+            <Suspense fallback={<div className="w-full h-full flex items-center justify-center text-muted-foreground">Loading 3D...</div>}>
+              <Spline scene="https://prod.spline.design/QTpEETNiFGfOMxGp/scene.splinecode" />
+            </Suspense>
+          </div>
           <Button 
             size="lg" 
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-xl glow-primary glow-hover"
