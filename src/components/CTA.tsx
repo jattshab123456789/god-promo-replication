@@ -1,7 +1,7 @@
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import Spline from "@splinetool/react-spline";
+
 
 const CTA = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -10,7 +10,13 @@ const CTA = () => {
     <section className="py-20 relative overflow-hidden">
       {/* Spline 3D Background */}
       <div className="absolute inset-0 z-0">
-        <Spline scene="https://prod.spline.design/aPs955T8Ezyant8f/scene.splinecode" />
+        <iframe 
+          src="https://my.spline.design/100followers-838kOF31iYXRVFVynv4znG5E/" 
+          frameBorder="0" 
+          width="100%" 
+          height="100%"
+          style={{ border: 'none' }}
+        />
       </div>
 
       <div className="container px-4 relative z-10" ref={ref}>
