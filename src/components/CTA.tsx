@@ -17,14 +17,6 @@ const CTA = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4 mb-6">
             Team Up With Us to Elevate Your Business
           </h2>
-          <div className="w-full h-[400px] mb-8 rounded-xl overflow-hidden">
-            <iframe
-              src="https://my.spline.design/QTpEETNiFGfOMxGp/"
-              style={{ width: "100%", height: "100%", border: "none" }}
-              title="3D Spline Scene"
-              loading="lazy"
-            />
-          </div>
           <Button 
             size="lg" 
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-xl glow-primary glow-hover"
