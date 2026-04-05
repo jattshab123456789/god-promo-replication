@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -11,6 +12,7 @@ const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
   const { signIn, isAdmin, user } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -23,6 +25,20 @@ const AdminLogin = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+
+    if (isSignUp) {
+      const { error } = await supabase.auth.signUp({ email, password });
+      if (error) {
+        toast({ title: "Sign up failed", description: error.message, variant: "destructive" });
+        setLoading(false);
+        return;
+      }
+      toast({ title: "Account created!", description: "Now sign in and ask the site owner to grant you admin access." });
+      setIsSignUp(false);
+      setLoading(false);
+      return;
+    }
+
     const { error } = await signIn(email, password);
     setLoading(false);
 
@@ -31,7 +47,6 @@ const AdminLogin = () => {
       return;
     }
 
-    // Check admin after a brief delay for state to update
     setTimeout(() => navigate("/admin"), 500);
   };
 
@@ -42,8 +57,10 @@ const AdminLogin = () => {
           <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <Lock className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-2xl font-bold text-foreground">Admin Login</h1>
-          <p className="text-muted-foreground mt-2">Sign in to manage your website</p>
+          <h1 className="text-2xl font-bold text-foreground">{isSignUp ? "Create Account" : "Admin Login"}</h1>
+          <p className="text-muted-foreground mt-2">
+            {isSignUp ? "Create your admin account" : "Sign in to manage your website"}
+          </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -66,13 +83,23 @@ const AdminLogin = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              minLength={6}
               className="mt-1"
             />
           </div>
           <Button type="submit" className="w-full" disabled={loading}>
-            {loading ? "Signing in..." : "Sign In"}
+            {loading ? "Please wait..." : isSignUp ? "Create Account" : "Sign In"}
           </Button>
         </form>
+
+        <div className="text-center mt-4">
+          <button
+            onClick={() => setIsSignUp(!isSignUp)}
+            className="text-sm text-primary hover:underline"
+          >
+            {isSignUp ? "Already have an account? Sign in" : "Need an account? Sign up"}
+          </button>
+        </div>
       </div>
     </div>
   );
