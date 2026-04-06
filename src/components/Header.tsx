@@ -11,7 +11,7 @@ const Header = () => {
     <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
       <div className="card-glass px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <img 
             src={logoImage} 
             alt="GOD PROMO Logo" 
@@ -20,7 +20,7 @@ const Header = () => {
           <span className="text-xl font-bold text-foreground">
             GOD <span className="text-primary">PROMO</span>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
