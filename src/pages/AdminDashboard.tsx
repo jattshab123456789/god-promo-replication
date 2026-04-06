@@ -1,17 +1,21 @@
-import { useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { LogOut, Contact, FileText, Image, Video } from "lucide-react";
-import AdminContactInfo from "@/components/admin/AdminContactInfo";
-import AdminTextContent from "@/components/admin/AdminTextContent";
-import AdminImages from "@/components/admin/AdminImages";
-import AdminVideos from "@/components/admin/AdminVideos";
+
+const AdminContactInfo = lazy(() => import("@/components/admin/AdminContactInfo"));
+const AdminTextContent = lazy(() => import("@/components/admin/AdminTextContent"));
+const AdminImages = lazy(() => import("@/components/admin/AdminImages"));
+const AdminVideos = lazy(() => import("@/components/admin/AdminVideos"));
+
+const TabLoader = () => <div className="text-muted-foreground py-8 text-center">Loading...</div>;
 
 const AdminDashboard = () => {
   const { user, isAdmin, loading, signOut } = useAuth();
   const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState("contact");
 
   useEffect(() => {
     if (!loading && (!user || !isAdmin)) {
@@ -37,7 +41,7 @@ const AdminDashboard = () => {
       </header>
 
       <div className="container max-w-5xl py-8 px-4">
-        <Tabs defaultValue="contact">
+        <Tabs value={activeTab} onValueChange={setActiveTab}>
           <TabsList className="grid grid-cols-4 w-full mb-8">
             <TabsTrigger value="contact" className="flex items-center gap-2">
               <Contact className="w-4 h-4" /> Contact
@@ -53,10 +57,18 @@ const AdminDashboard = () => {
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="contact"><AdminContactInfo /></TabsContent>
-          <TabsContent value="text"><AdminTextContent /></TabsContent>
-          <TabsContent value="images"><AdminImages /></TabsContent>
-          <TabsContent value="videos"><AdminVideos /></TabsContent>
+          <TabsContent value="contact">
+            {activeTab === "contact" && <Suspense fallback={<TabLoader />}><AdminContactInfo /></Suspense>}
+          </TabsContent>
+          <TabsContent value="text">
+            {activeTab === "text" && <Suspense fallback={<TabLoader />}><AdminTextContent /></Suspense>}
+          </TabsContent>
+          <TabsContent value="images">
+            {activeTab === "images" && <Suspense fallback={<TabLoader />}><AdminImages /></Suspense>}
+          </TabsContent>
+          <TabsContent value="videos">
+            {activeTab === "videos" && <Suspense fallback={<TabLoader />}><AdminVideos /></Suspense>}
+          </TabsContent>
         </Tabs>
       </div>
     </div>
