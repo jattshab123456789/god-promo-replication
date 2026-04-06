@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
@@ -113,13 +112,15 @@ const AdminVideos = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {catVideos.map((vid: any) => (
                 <div key={vid.id} className="relative group rounded-xl overflow-hidden border border-border">
-                  <video src={vid.url} className="w-full h-40 object-cover" muted />
+                  <div className="w-full h-40 bg-muted flex items-center justify-center text-muted-foreground text-sm">
+                    🎬 {vid.label}
+                  </div>
                   <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <Button variant="destructive" size="sm" onClick={() => handleDelete(vid)}>
                       <Trash2 className="w-4 h-4 mr-1" /> Delete
                     </Button>
                   </div>
-                  <div className="p-2 text-xs text-muted-foreground">{vid.label}</div>
+                  <div className="p-2 text-xs text-muted-foreground">{vid.category}</div>
                 </div>
               ))}
             </div>
