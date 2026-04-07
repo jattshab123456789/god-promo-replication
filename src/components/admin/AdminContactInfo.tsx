@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { useQueryClient } from "@tanstack/react-query";
 import { Save } from "lucide-react";
 
 const AdminContactInfo = () => {
@@ -11,6 +12,7 @@ const AdminContactInfo = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const { toast } = useToast();
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     supabase.from("contact_info").select("key, value").then(({ data }) => {
@@ -26,6 +28,7 @@ const AdminContactInfo = () => {
     for (const [key, value] of Object.entries(fields)) {
       await supabase.from("contact_info").upsert({ key, value, updated_at: new Date().toISOString() }, { onConflict: "key" });
     }
+    await queryClient.invalidateQueries({ queryKey: ["contact-info"] });
     setSaving(false);
     toast({ title: "Contact info saved!" });
   };

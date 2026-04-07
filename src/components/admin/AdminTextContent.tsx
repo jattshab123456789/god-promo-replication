@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { useQueryClient } from "@tanstack/react-query";
 import { Save } from "lucide-react";
 
 const AdminTextContent = () => {
@@ -12,6 +13,7 @@ const AdminTextContent = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const { toast } = useToast();
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     supabase.from("site_content").select("key, value").then(({ data }) => {
@@ -27,6 +29,7 @@ const AdminTextContent = () => {
     for (const [key, value] of Object.entries(fields)) {
       await supabase.from("site_content").upsert({ key, value, updated_at: new Date().toISOString() }, { onConflict: "key" });
     }
+    await queryClient.invalidateQueries({ queryKey: ["site-content"] });
     setSaving(false);
     toast({ title: "Content saved!" });
   };
