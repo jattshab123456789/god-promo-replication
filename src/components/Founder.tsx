@@ -2,9 +2,13 @@ import { Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import founderImage from "@/assets/founder-sahil.jpg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useContactInfo } from "@/hooks/useSiteContent";
 
 const Founder = () => {
   const { ref, isVisible } = useScrollReveal();
+  const { data: contact } = useContactInfo();
+  const whatsapp = contact?.whatsapp || "917404141096";
+  const email = contact?.email || "sahilgrewal089@gmail.com";
 
   return (
     <section id="founder" className="py-20 relative overflow-hidden">
@@ -51,7 +55,7 @@ const Founder = () => {
                     className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl glow-hover"
                     asChild
                   >
-                    <a href="https://wa.me/917404141096?text=Hello%2C%20I%27m%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer">
+                    <a href={`https://wa.me/${whatsapp}?text=Hello%2C%20I%27m%20interested%20in%20your%20services.`} target="_blank" rel="noopener noreferrer">
                       <MessageCircle className="mr-2 h-4 w-4" />
                       WhatsApp
                     </a>
@@ -61,7 +65,7 @@ const Founder = () => {
                     className="border-primary/50 hover:bg-primary/10 text-foreground font-semibold rounded-xl glow-hover"
                     asChild
                   >
-                    <a href="mailto:sahilgrewal089@gmail.com">
+                    <a href={`mailto:${email}`}>
                       <Mail className="mr-2 h-4 w-4" />
                       Email Us
                     </a>
