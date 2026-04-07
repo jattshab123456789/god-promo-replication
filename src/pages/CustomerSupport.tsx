@@ -1,8 +1,13 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { MessageCircle, Mail, Clock, HelpCircle } from "lucide-react";
+import { useContactInfo } from "@/hooks/useSiteContent";
 
 const CustomerSupport = () => {
+  const { data: contact } = useContactInfo();
+  const whatsapp = contact?.whatsapp || "917404141096";
+  const phone = contact?.phone || "+91 7404141096";
+  const email = contact?.email || "sahilgrewal089@gmail.com";
   return (
     <div className="min-h-screen">
       <Header />
@@ -23,12 +28,12 @@ const CustomerSupport = () => {
                 <h3 className="text-xl font-semibold text-foreground mb-2">WhatsApp Support</h3>
                 <p className="text-muted-foreground mb-4">Get instant support via WhatsApp for quick queries.</p>
                 <a 
-                  href="https://wa.me/917404141096?text=Hello%2C%20I%20need%20help%20with%20your%20services." 
+                  href={`https://wa.me/${whatsapp}?text=Hello%2C%20I%20need%20help%20with%20your%20services.`} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-primary hover:underline font-medium"
                 >
-                  +91 7404141096
+                  {phone}
                 </a>
               </div>
 
@@ -37,10 +42,10 @@ const CustomerSupport = () => {
                 <h3 className="text-xl font-semibold text-foreground mb-2">Email Support</h3>
                 <p className="text-muted-foreground mb-4">Send us an email and we'll respond within 24 hours.</p>
                 <a 
-                  href="mailto:sahilgrewal089@gmail.com"
+                  href={`mailto:${email}`}
                   className="text-primary hover:underline font-medium"
                 >
-                  sahilgrewal089@gmail.com
+                  {email}
                 </a>
               </div>
 
