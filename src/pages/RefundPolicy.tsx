@@ -1,7 +1,12 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useContactInfo } from "@/hooks/useSiteContent";
 
 const RefundPolicy = () => {
+  const { data: contact } = useContactInfo();
+  const email = contact?.email || "godpromoinc@gmail.com";
+  const whatsapp = contact?.whatsapp || "917404141096";
+  const phone = contact?.phone || "+91 7404141096";
   return (
     <div className="min-h-screen">
       <Header />
@@ -101,14 +106,14 @@ const RefundPolicy = () => {
               <div className="mt-4 p-4 rounded-xl bg-card border border-border">
                 <p className="text-foreground">
                   <strong>Email:</strong>{" "}
-                  <a href="mailto:sahilgrewal089@gmail.com" className="text-primary hover:underline">
-                    sahilgrewal089@gmail.com
+                  <a href={`mailto:${email}`} className="text-primary hover:underline">
+                    {email}
                   </a>
                 </p>
                 <p className="text-foreground mt-2">
                   <strong>WhatsApp:</strong>{" "}
-                  <a href="https://wa.me/917404141096" className="text-primary hover:underline">
-                    +91 7404141096
+                  <a href={`https://wa.me/${whatsapp}`} className="text-primary hover:underline">
+                    {phone}
                   </a>
                 </p>
               </div>

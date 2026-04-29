@@ -9,7 +9,7 @@ const Footer = () => {
 
   const whatsapp = contact?.whatsapp || "917404141096";
   const phone = contact?.phone || "+91 7404141096";
-  const email = contact?.email || "sahilgrewal089@gmail.com";
+  const email = contact?.email || "godpromoinc@gmail.com";
   const description = content?.footer_description || "Professional video editing services that help your content stand out.";
 
   return (
