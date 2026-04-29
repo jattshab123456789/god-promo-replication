@@ -8,7 +8,7 @@ const Founder = () => {
   const { ref, isVisible } = useScrollReveal();
   const { data: contact } = useContactInfo();
   const whatsapp = contact?.whatsapp || "917404141096";
-  const email = contact?.email || "sahilgrewal089@gmail.com";
+  const email = contact?.email || "godpromoinc@gmail.com";
 
   return (
     <section id="founder" className="py-20 relative overflow-hidden">

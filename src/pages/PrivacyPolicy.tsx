@@ -1,7 +1,12 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useContactInfo } from "@/hooks/useSiteContent";
 
 const PrivacyPolicy = () => {
+  const { data: contact } = useContactInfo();
+  const email = contact?.email || "godpromoinc@gmail.com";
+  const whatsapp = contact?.whatsapp || "917404141096";
+  const phone = contact?.phone || "+91 7404141096";
   return (
     <div className="min-h-screen">
       <Header />
@@ -108,12 +113,12 @@ const PrivacyPolicy = () => {
               <h2 className="text-2xl font-semibold text-foreground mb-4">11. Contact Us</h2>
               <p className="text-muted-foreground">
                 If you have questions about this Privacy Policy, please contact us at{" "}
-                <a href="mailto:sahilgrewal089@gmail.com" className="text-primary hover:underline">
-                  sahilgrewal089@gmail.com
+                <a href={`mailto:${email}`} className="text-primary hover:underline">
+                  {email}
                 </a>{" "}
                 or via WhatsApp at{" "}
-                <a href="https://wa.me/917404141096" className="text-primary hover:underline">
-                  +91 7404141096
+                <a href={`https://wa.me/${whatsapp}`} className="text-primary hover:underline">
+                  {phone}
                 </a>
               </p>
             </section>

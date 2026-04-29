@@ -1,7 +1,10 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useContactInfo } from "@/hooks/useSiteContent";
 
 const TermsOfService = () => {
+  const { data: contact } = useContactInfo();
+  const email = contact?.email || "godpromoinc@gmail.com";
   return (
     <div className="min-h-screen">
       <Header />
@@ -87,8 +90,8 @@ const TermsOfService = () => {
               <h2 className="text-2xl font-semibold text-foreground mb-4">10. Contact</h2>
               <p className="text-muted-foreground">
                 For questions about these Terms of Service, please contact us at{" "}
-                <a href="mailto:sahilgrewal089@gmail.com" className="text-primary hover:underline">
-                  sahilgrewal089@gmail.com
+                <a href={`mailto:${email}`} className="text-primary hover:underline">
+                  {email}
                 </a>
               </p>
             </section>
